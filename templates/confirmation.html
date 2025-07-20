@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Created - Spotify Top 50 Generator</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <!-- Success Header -->
+                <div class="text-center mb-4">
+                    <div class="mb-3">
+                        <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h1 class="display-5 mb-2">Playlist Created Successfully!</h1>
+                    <p class="lead text-muted">
+                        {% if user_name %}Hello {{ user_name }}! {% endif %}
+                        Your {{ time_display.lower() }} top tracks have been compiled into a playlist.
+                    </p>
+                </div>
+
+                <!-- Playlist Info Card -->
+                <div class="card border-success mb-4">
+                    <div class="card-header bg-success text-dark">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-list-ul me-2"></i>
+                            {{ playlist_name }}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <p class="mb-2">
+                                    <strong>{{ track_count }}</strong> tracks from your {{ time_display.lower() }} listening history
+                                </p>
+                                <p class="text-muted mb-0">
+                                    <i class="fas fa-lock me-1"></i>
+                                    Private playlist (only visible to you)
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                <a href="{{ playlist_url }}" target="_blank" class="btn btn-success btn-lg">
+                                    <i class="fab fa-spotify me-2"></i>
+                                    Open in Spotify
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track List -->
+                <div class="card border-secondary">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">
+                            <i class="fas fa-music me-2"></i>
+                            Your Top {{ track_count }} Tracks
+                        </h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            {% for track in tracks %}
+                            <div class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge bg-secondary me-3">{{ loop.index }}</span>
+                                        <div>
+                                            <h6 class="mb-1">{{ track.name }}</h6>
+                                            <small class="text-muted">
+                                                <i class="fas fa-user me-1"></i>{{ track.artists }}
+                                                {% if track.album %}
+                                                    <span class="mx-2">•</span>
+                                                    <i class="fas fa-compact-disc me-1"></i>{{ track.album }}
+                                                {% endif %}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="{{ track.external_url }}" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mt-4">
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-auto">
+                            <a href="{{ url_for('index') }}" class="btn btn-outline-light">
+                                <i class="fas fa-redo me-2"></i>
+                                Create Another Playlist
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{{ playlist_url }}" target="_blank" class="btn btn-success">
+                                <i class="fab fa-spotify me-2"></i>
+                                Open Playlist
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips -->
+                <div class="alert alert-info mt-4" role="alert">
+                    <h5 class="alert-heading">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        Tips
+                    </h5>
+                    <ul class="mb-0">
+                        <li>Your playlist will automatically update if you run this again for the same time period</li>
+                        <li>Share your playlist with friends by making it public in Spotify</li>
+                        <li>Try different time ranges to discover how your music taste has evolved</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container mt-5 pt-4 border-top border-secondary">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="text-muted mb-2">
+                    <i class="fab fa-spotify text-success me-2"></i>
+                    Powered by Spotify Web API
+                </p>
+                <small class="text-muted">
+                    Playlist data refreshes based on your current Spotify listening habits.
+                </small>
+                <div class="mt-3">
+                    <small class="text-muted">
+                        Made by <strong>NADER BEN HAJ MESSAOUD</strong><br>
+                        <a href="https://github.com/NaderBhm" target="_blank" class="text-decoration-none text-info">
+                            <i class="fab fa-github me-1"></i>https://github.com/NaderBhm
+                        </a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
