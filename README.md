@@ -1,3 +1,10 @@
+<h1 align="center">
+  <a href="https://5a2b6c95-1b4a-4f1c-9b24-1ceafa5dc2ad-00-2vvbioulhir05.spock.replit.dev" target="_blank" style="text-decoration: none; color: #1DB954;">
+    🎵 Try the App !
+  </a>
+</h1>
+
+
 # Spotify Top 50 Playlist Generator
 
 Generate a personalized Spotify playlist with your top 50 most listened tracks for different time ranges — Last 4 Weeks, Last 6 Months, or All Time.
@@ -18,12 +25,6 @@ This Flask web app uses the Spotify Web API and Spotipy library to authenticate 
 - View the playlist and track details in the app.
 - Clear and informative error handling with user-friendly messages.
 - Privacy-first approach: the app only accesses your Spotify data temporarily and never stores it.
-
----
-
-## Demo
-
-[https://5a2b6c95-1b4a-4f1c-9b24-1ceafa5dc2ad-00-2vvbioulhir05.spock.replit.dev] (ACCEESS THE WEBSITE NOW!)
 
 ---
 
