@@ -107,9 +107,7 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Made by NADER BEN HAJ MESSAOUD
-
-GitHub: https://github.com/NaderBhm
+Made by NADER BEN HAJ MESSAOUD (aka ME)
 
 ## Privacy
 
